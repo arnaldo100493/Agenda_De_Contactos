@@ -104,8 +104,8 @@ public class ControlContactos {
             int posicion;
             
             String nombre;
-            long telefono;
             String direccion;
+            long telefono;
             String email;
             
             while ((linea = bufLeer.readLine()) != null) {
@@ -126,7 +126,7 @@ public class ControlContactos {
                 linea = linea.substring(posicion + 1);
                 email = linea;
                 
-                Contacto c = new Contacto(nombre, telefono, direccion, email);
+                Contacto c = new Contacto(nombre, direccion, telefono, email);
                 registrar(c);
             }
             

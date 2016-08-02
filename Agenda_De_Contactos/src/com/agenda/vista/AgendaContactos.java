@@ -114,10 +114,10 @@ public class AgendaContactos extends JFrame {
                 this.tecleo++;
             } else if (tecleo == 1) {
                 String nombre = textNombre.getText();
-                long tel = new Long(textTelefono.getText());
                 String dir = textDireccion.getText();
+                long tel = new Long(textTelefono.getText());
                 String email = textEmail.getText();
-                Contacto c = new Contacto(nombre, tel, dir, email);
+                Contacto c = new Contacto(nombre, dir, tel, email);
                 this.cc.modificar(this.telefono, c);
                 this.cc.escribir();
                 this.listar();
