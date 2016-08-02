@@ -40,7 +40,7 @@ public class AgendaContactos extends JFrame {
         this.listar();
     }
 
-    public boolean validarCampos() {
+    private boolean validarCampos() {
         if (this.textNombre.getText().isEmpty() | this.textDireccion.getText().isEmpty() | this.textTelefono.getText().isEmpty() | this.textEmail.getText().isEmpty()) {
             return true;
         } else {
@@ -48,7 +48,7 @@ public class AgendaContactos extends JFrame {
         }
     }
 
-    public void estadoEncendido() {
+    private void estadoEncendido() {
         this.buttonModificar.setText("Guardar");
         this.menuItemModificar.setText("Guardar");
         this.buttonRegistrar.setEnabled(false);
@@ -58,7 +58,7 @@ public class AgendaContactos extends JFrame {
         this.menuItemEliminar.setEnabled(false);
     }
 
-    public void estadoApagado() {
+    private void estadoApagado() {
         this.buttonModificar.setText("Modificar");
         this.menuItemModificar.setText("Modificar");
         this.buttonRegistrar.setEnabled(true);
@@ -68,14 +68,14 @@ public class AgendaContactos extends JFrame {
         this.menuItemEliminar.setEnabled(true);
     }
 
-    public void limpiarTxt() {
+    private void limpiarTxt() {
         this.textNombre.setText("");
         this.textDireccion.setText("");
         this.textTelefono.setText("");
         this.textEmail.setText("");
     }
 
-    public void registrar() {
+    private void registrar() {
         if (validarCampos() == false) {
             Contacto c = new Contacto();
             c.setNombre(this.textNombre.getText());
@@ -101,7 +101,7 @@ public class AgendaContactos extends JFrame {
         }
     }
 
-    public void modificar() {
+    private void modificar() {
         if (this.tableListadoContactos.getSelectedRow() > -1) {
             if (tecleo == 0) {
                 estadoEncendido();
@@ -133,7 +133,7 @@ public class AgendaContactos extends JFrame {
 
     }
 
-    public void eliminar() {
+    private void eliminar() {
         if (this.tableListadoContactos.getSelectedRow() > -1) {
             int seleccion = this.tableListadoContactos.getSelectedRow();
             String nombre = (String) this.lista.getValueAt(seleccion, 0);
@@ -150,7 +150,7 @@ public class AgendaContactos extends JFrame {
         }
     }
 
-    public void listar() {
+    private void listar() {
         this.lista.setRowCount(0);
         for (int i = 0; i < this.cc.listar().size(); i++) {
             Contacto c = cc.listar().get(i);
@@ -158,7 +158,7 @@ public class AgendaContactos extends JFrame {
         }
     }
 
-    public void buscar() {
+    private void buscar() {
         String buscar = textBuscar.getText();
         for (int i = 0; i < this.tableListadoContactos.getRowCount(); i++) {
             String bb = (String) this.tableListadoContactos.getValueAt(i, 0);
